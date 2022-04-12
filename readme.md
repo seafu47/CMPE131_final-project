@@ -1,5 +1,5 @@
 # Project Name
-- Name (@username)
+- Xiyuan Zhou
 - Name (@username)
 - Name (@username)
 - Name (@username)
