@@ -1,6 +1,6 @@
 # Project Name
 - Xiyuan Zhou (@xiyuanzhou)
-- Jiaheng Fang (@username)
+- Jiaheng Fang (@seafu47)
 - Name (@username)
 - Name (@username)
 
