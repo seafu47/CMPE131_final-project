@@ -1,5 +1,5 @@
 # Project Name
-- Xiyuan Zhou
+- Xiyuan Zhou,Lucas
 - Name (@username)
 - Name (@username)
 - Name (@username)
