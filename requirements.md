@@ -30,7 +30,9 @@
 5. Adding pictures
 6. Sorting
 
-7. Use Case Name (Should match functional requirement name)
+#
+
+1. Use Case Name (Should match functional requirement name)
 - **Pre-condition:** <can be a list or short description> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
 
 - **Trigger:** <can be a list or short description> Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. 
@@ -64,3 +66,18 @@
   
 2. Use Case Name (Should match functional requirement name)
    ...
+
+   
+3. Delete items
+- **Pre-condition:**
+- **Trigger:**
+- **Primary Sequence:**
+- **Primary Postconditions:**
+- **Alternate Sequence:**
+
+4. User profile
+- **Pre-condition:**
+- **Trigger:**
+- **Primary Sequence:**
+- **Primary Postconditions:**
+- **Alternate Sequence:**
