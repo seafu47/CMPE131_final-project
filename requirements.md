@@ -30,7 +30,18 @@
 5. Adding pictures
 6. Sorting
 
-#
+Use Case Description
+
+Name: Sell Item
+
+Summary: User who has logged in can sell item on the website
+
+Actor(s): The customer and buyers
+
+Trigger: Customer select "Post item" option
+
+
+
 
 1. Use Case Name (Should match functional requirement name)
 - **Pre-condition:** <can be a list or short description> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
