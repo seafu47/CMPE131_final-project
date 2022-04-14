@@ -92,3 +92,5 @@ Trigger: Customer select "Post item" option
 - **Primary Sequence:**
 - **Primary Postconditions:**
 - **Alternate Sequence:**
+
+5. 
