@@ -23,8 +23,14 @@
 4. Smooth interface
 
 ## Use Cases
+1. Sell items
+2. Post items
+3. Delete items 
+4. User profile
+5. Adding pictures
+6. Sorting
 
-1. Use Case Name (Should match functional requirement name)
+7. Use Case Name (Should match functional requirement name)
 - **Pre-condition:** <can be a list or short description> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
 
 - **Trigger:** <can be a list or short description> Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. 
@@ -55,5 +61,6 @@
   1. Ut enim ad minim veniam, quis nostrum e
   2. Ut enim ad minim veniam, quis nostrum e
   3. ...
+  
 2. Use Case Name (Should match functional requirement name)
    ...
