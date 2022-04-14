@@ -2,25 +2,25 @@
 
 ## Functional Requirements
 
-1. requirement
-2. requirement
-3. requirement
-4. requirement
-5. requirement
-6. requirement
-7. requirement
-8. requirement
-9. requirement
-10. requirement
-11. requirement
-12. requirement
+1. Login
+2. Logout
+3. Create Account
+4. Delete Account
+5. Search Items
+6. Post Items
+7. Delete Item
+8. Purchase/Bid on Item
+9. User Profile
+10. Ratings
+11. Add pictures
+12. Sorting
 
 ## Non-functional Requirements
 
-1. non-functional
-2. non-functional
-3. non-functional
-4. non-functional
+1. Chinese Language
+2. Turkish Language
+3. Dark Mode
+4. Smooth interface
 
 ## Use Cases
 
