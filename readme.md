@@ -1,5 +1,5 @@
 # Project Name
 - Xiyuan Zhou (@xiyuanzhou)
 - Jiaheng Fang (@seafu47)
-- Name (@username)
+- Rommel Aquino Jr (@RommelAquinoJr)
 - Name (@username)
