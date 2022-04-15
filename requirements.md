@@ -75,8 +75,25 @@ Trigger: Customer select "Post item" option
   2. Ut enim ad minim veniam, quis nostrum e
   3. ...
   
-2. Use Case Name (Should match functional requirement name)
-   ...
+2. Post items
+- **Pre-condition:** User must be logged into their account.
+
+- **Trigger:** User selects the "Post Item" button
+
+- **Primary Sequence:**
+  
+  1. User logs into their account
+  2. Select "Post Item" button
+  3. User imports image of item by clicking the image box
+  4. User fills in the description box of the item
+  5. User inputs the price of the item in the price box
+  6. Submit post
+
+- **Primary Postconditions:** The account of the user who posted the item must still exist and not be deleted.
+
+- **Alternate Sequence:** <you can have more than one alternate sequence to describe multiple issues that may arise>
+  
+  1. 
 
    
 3. Delete items
