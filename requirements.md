@@ -1,4 +1,3 @@
-## <remove all of the example text and notes in < > such as this one>
 
 ## Functional Requirements
 
@@ -93,7 +92,7 @@ Trigger: Customer select "Post item" option
 
 - **Primary Postconditions:** The account of the user who posted the item must still exist and not be deleted.
 
-- **Alternate Sequence:** <you can have more than one alternate sequence to describe multiple issues that may arise>
+- **Alternate Sequence:** 
   
   1. User logs into their account
   2. Select "Post Item" button
@@ -145,7 +144,7 @@ Trigger: Customer select "Post item" option
      1. The system will not show password
      2. The system will not show security information (if any security info)
 
-- **Alternate Sequence <optional>:**
+- **Alternate Sequence:**
   1. User edit information
      1. System will pop up message verify each changing, (Yes or No)
      2. User needs select(click) "save" button to save changed
