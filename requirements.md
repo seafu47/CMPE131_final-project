@@ -30,6 +30,7 @@
 5. Adding pictures
 6. Sorting
 
+
 Use Case Description
 
 Name: Sell Item
@@ -76,6 +77,7 @@ Trigger: Customer select "Post item" option
   3. ...
   
 ### 2. Post items
+
 - **Pre-condition:** User must be logged into their account.
 
 - **Trigger:** User selects the "Post Item" button
@@ -103,20 +105,50 @@ Trigger: Customer select "Post item" option
   8. User continues from where they left off to complete post
   9. Submit post
 
-   
+@xiyuanzhuo
 ### 3. Delete items
-- **Pre-condition:**
-- **Trigger:**
-- **Primary Sequence:**
-- **Primary Postconditions:**
-- **Alternate Sequence:**
+- **Pre-condition:** User(customer) need to login
 
-### 4. User profile
-- **Pre-condition:**
-- **Trigger:**
+- **Trigger:** User click the "Post Item" button then click "delete" button for specify one
+
 - **Primary Sequence:**
-- **Primary Postconditions:**
+  1. User(customer) login first
+  2. User select and click "Post Item" button to view
+  3. User look for the item to delete
+  4. User(customer) choice and Click "delete" button
+  5. User(customer) back to the main page
+
+- **Primary Postconditions:** User delete items successfully for the chosen one and the rest of items still exist
+
 - **Alternate Sequence:**
+  1. User(customer) click the "delete" items button does not execute right away
+     1. The system will pop up message to verify the user again, (Yes or No)
+     
+@xiyuanzhou
+###4. User profile
+- **Pre-condition:** User(customer) has logged in
+
+- **Trigger:** User click(select) "user's name" button first to see the "profile" button
+
+- **Primary Sequence:**
+  1. User(customer) has logged in first
+  2. User need to select(click) user's name button show on the top
+  3. User see the "profile" button then select
+  4. System will show user's information
+  5. User can select "edit" button 
+  6. System shows edit options for information
+
+- **Primary Postconditions:** User(customer) profile information successfully show or options ("edit successfully")
+
+- **Alternate Sequence:**
+  1. User(customer) profile should not show all the information
+     1. The system will not show password
+     2. The system will not show security information (if any security info)
+
+- **Alternate Sequence <optional>:**
+  1. User edit information
+     1. System will pop up message verify each changing, (Yes or No)
+     2. User needs select(click) "save" button to save changed
 
 ### 5. 5
 ### 6. **Sorting** 
