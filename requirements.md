@@ -93,7 +93,15 @@ Trigger: Customer select "Post item" option
 
 - **Alternate Sequence:** <you can have more than one alternate sequence to describe multiple issues that may arise>
   
-  1. 
+  1. User logs into their account
+  2. Select "Post Item" button
+  3. User imports image of item by clicking the image box
+  4. User fills in the description box of the item
+  5. User inputs the price of the item in the price box
+  6. Submit post
+  7. If user leaves any input box empty, post won't be submitted
+  8. User continues from where they left off to complete post
+  9. Submit post
 
    
 3. Delete items
