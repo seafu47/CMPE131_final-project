@@ -30,6 +30,7 @@
 5. Adding pictures
 6. Sorting
 
+
 Use Case Description
 
 Name: Sell Item
@@ -43,7 +44,7 @@ Trigger: Customer select "Post item" option
 
 
 
-1. Use Case Name (Should match functional requirement name)
+### 1. Use Case Name (Should match functional requirement name)
 - **Pre-condition:** <can be a list or short description> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
 
 - **Trigger:** <can be a list or short description> Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. 
@@ -75,7 +76,8 @@ Trigger: Customer select "Post item" option
   2. Ut enim ad minim veniam, quis nostrum e
   3. ...
   
-2. Post items
+### 2. Post items
+
 - **Pre-condition:** User must be logged into their account.
 
 - **Trigger:** User selects the "Post Item" button
@@ -103,9 +105,8 @@ Trigger: Customer select "Post item" option
   8. User continues from where they left off to complete post
   9. Submit post
 
-
 @xiyuanzhuo
-3. Delete items
+### 3. Delete items
 - **Pre-condition:** User(customer) need to login
 
 - **Trigger:** User click the "Post Item" button then click "delete" button for specify one
@@ -124,7 +125,7 @@ Trigger: Customer select "Post item" option
      1. The system will pop up message to verify the user again, (Yes or No)
      
 @xiyuanzhou
-4. User profile
+###4. User profile
 - **Pre-condition:** User(customer) has logged in
 
 - **Trigger:** User click(select) "user's name" button first to see the "profile" button
@@ -149,5 +150,22 @@ Trigger: Customer select "Post item" option
      1. System will pop up message verify each changing, (Yes or No)
      2. User needs select(click) "save" button to save changed
 
+### 5. 5
+### 6. **Sorting** 
+- **Pre-condition:** Sort listings by conditions.
 
-5. 
+- **Trigger:** Sorts the posted items in the main page by price, reviews and listing date. 
+
+- **Primary Sequence:**
+  
+  1. Be in the main page
+  2. Click the sort icon
+  3. Pick sort option from "price", "date" or "reviews".
+
+- **Primary Postconditions:** The items listed in the page will be ordered accordingly. 
+
+- **Alternate Sequence:** Uncheck sorting
+  
+  1. Be in the main page
+  2. Click the sort icon
+  3. Click the selected sort again to undo the sorting.
