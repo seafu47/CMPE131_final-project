@@ -124,7 +124,7 @@ Trigger: Customer select "Post item" option
      1. The system will pop up message to verify the user again, (Yes or No)
      
 @xiyuanzhou
-###4. User profile
+### 4. User profile
 - **Pre-condition:** User(customer) has logged in
 
 - **Trigger:** User click(select) "user's name" button first to see the "profile" button
