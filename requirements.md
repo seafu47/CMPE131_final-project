@@ -23,8 +23,27 @@
 4. Smooth interface
 
 ## Use Cases
+1. Sell items
+2. Post items
+3. Delete items 
+4. User profile
+5. Adding pictures
+6. Sorting
 
-1. Use Case Name (Should match functional requirement name)
+Use Case Description
+
+Name: Sell Item
+
+Summary: User who has logged in can sell item on the website
+
+Actor(s): The customer and buyers
+
+Trigger: Customer select "Post item" option
+
+
+
+
+### 1. Use Case Name (Should match functional requirement name)
 - **Pre-condition:** <can be a list or short description> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
 
 - **Trigger:** <can be a list or short description> Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. 
@@ -55,5 +74,66 @@
   1. Ut enim ad minim veniam, quis nostrum e
   2. Ut enim ad minim veniam, quis nostrum e
   3. ...
-2. Use Case Name (Should match functional requirement name)
-   ...
+  
+### 2. Post items
+- **Pre-condition:** User must be logged into their account.
+
+- **Trigger:** User selects the "Post Item" button
+
+- **Primary Sequence:**
+  
+  1. User logs into their account
+  2. Select "Post Item" button
+  3. User imports image of item by clicking the image box
+  4. User fills in the description box of the item
+  5. User inputs the price of the item in the price box
+  6. Submit post
+
+- **Primary Postconditions:** The account of the user who posted the item must still exist and not be deleted.
+
+- **Alternate Sequence:** <you can have more than one alternate sequence to describe multiple issues that may arise>
+  
+  1. User logs into their account
+  2. Select "Post Item" button
+  3. User imports image of item by clicking the image box
+  4. User fills in the description box of the item
+  5. User inputs the price of the item in the price box
+  6. Submit post
+  7. If user leaves any input box empty, post won't be submitted
+  8. User continues from where they left off to complete post
+  9. Submit post
+
+   
+### 3. Delete items
+- **Pre-condition:**
+- **Trigger:**
+- **Primary Sequence:**
+- **Primary Postconditions:**
+- **Alternate Sequence:**
+
+### 4. User profile
+- **Pre-condition:**
+- **Trigger:**
+- **Primary Sequence:**
+- **Primary Postconditions:**
+- **Alternate Sequence:**
+
+### 5. 5
+### 6. **Sorting** 
+- **Pre-condition:** Sort listings by conditions.
+
+- **Trigger:** Sorts the posted items in the main page by price, reviews and listing date. 
+
+- **Primary Sequence:**
+  
+  1. Be in the main page
+  2. Click the sort icon
+  3. Pick sort option from "price", "date" or "reviews".
+
+- **Primary Postconditions:** The items listed in the page will be ordered accordingly. 
+
+- **Alternate Sequence:** Uncheck sorting
+  
+  1. Be in the main page
+  2. Click the sort icon
+  3. Click the selected sort again to undo the sorting.
