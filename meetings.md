@@ -14,23 +14,16 @@
 ### 2022-04-14 at 14:05
 -Attended: Xiyuan Zhou, Jiaheng Fang, Rommel Aquino Jr, Ahmet Mutlugun 
 -Team updates (more than 30 mins)
-  Jiaheng Fang have create our team github repository.
-  Ahmet Mutlugun write all the use cases list into the file after our discussion.
-  Soon we set up all the respoitory, we split the work. Jiaheng Fang work on the use case number 1 and 6,
-  Xiyuan Zhou work on the use case number 3 and 4, Rommel Aquino Jr work on use case number 2 and Ahmet Mutlugun
-  work on the use case number 6.
+  -Jiaheng Fang created the github repository and dicussed the project proposal requirements.
+  -Ahmet Multgun Worked on use case decription 6, Xiyuan Zhou worked on use case 3 and 4, Rommel Aquino Jr work on case 2, and Jiaheng worked on 1 and 5
+  -Discussed plan for next week to finish up the 4 function cases, login, logout, register, and delete.
+  -Dicussed future meeting time and project structure.
 -Summarize
-  Our team decide what all the use cases to work on, then we choose 6 use case to write about.
-  Our team split the use cases to work on. 
+  Our team decide the 12 use case function to implement on our website, and further discuss what we need to be completed this week. Our main focus before the next meeting is to complete the first four function login, logout, register, and delete. After finishg the 4 function we will assign group memeber to work on the remaining function. 
 
-### 2022-04-16 at 22:30
--Attended: Xiyuan Zhou, Jiaheng Fang, Rommel Aquino Jr, Ahmet Mutlugun 
--Team updates (less 15 mins)
+### 2022-04-19
+-next meeting
 
-
-### 2022-04-17 at 11:10
--Attended: Xiyuan Zhou, Jiaheng Fang, Rommel Aquino Jr, Ahmet Mutlugun 
--Team updates (more than 15 mins)
 
 
 ### Example
