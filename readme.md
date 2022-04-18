@@ -1,6 +1,5 @@
 # Project Name
-- Team lead (Jiaheng Fang)
-- Xiyuan Zhou (@xiyuanzhou) 
-- Jiaheng Fang (@seafu47)
+- Xiyuan Zhou (@xiyuanzhou)
+- Jiaheng Fang (@seafu47) @ Team Lead
 - Rommel Aquino Jr (@RommelAquinoJr)
 - Ahmet Mutlugun (@ahmetmutlugun)
