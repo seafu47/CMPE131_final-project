@@ -1,18 +1,18 @@
 
 ## Functional Requirements
 
-1. Login
-2. Logout
-3. Create Account
-4. Delete Account
-5. Search Items
-6. Post Items
-7. Delete Item
-8. Purchase/Bid on Item
-9. User Profile
-10. Ratings
-11. Add pictures
-12. Sorting
+1. Login - Xiyuan Zhou
+2. Logout - Rommel Aquino Jr
+3. Create Account - Jiaheng Fang
+4. Delete Account - Jiaheng Fang
+5. Search Items - Rommel Aquino Jr 
+6. Post Items - Rommel Aquino Jr 
+7. Delete Item - Xiyuan Zhou
+8. Purchase/Bid on Item - Ahmet Mutlugun
+9. User Profile - Xiyuan Zhou
+10. Ratings - Ahmet Mutlugun
+11. Add pictures - Jiaheng Fang
+12. Sorting - Ahmet Mutlugun
 
 ## Non-functional Requirements
 
