@@ -29,51 +29,21 @@
 5. Adding pictures
 6. Sorting
 
-
-Use Case Description
-
-Name: Sell Item
-
-Summary: User who has logged in can sell item on the website
-
-Actor(s): The customer and buyers
-
-Trigger: Customer select "Post item" option
-
-
-
-
-### 1. Use Case Name (Should match functional requirement name)
-- **Pre-condition:** <can be a list or short description> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
-
-- **Trigger:** <can be a list or short description> Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. 
-
-- **Primary Sequence:**
-  
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Et sequi incidunt 
-  3. Quis aute iure reprehenderit
-  4. ... 
-  5. ...
-  6. ...
-  7. ...
-  8. ...
-  9. ...
-  10. <Try to stick to a max of 10 steps>
-
-- **Primary Postconditions:** <can be a list or short description> 
-
-- **Alternate Sequence:** <you can have more than one alternate sequence to describe multiple issues that may arise>
-  
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
-
-- **Alternate Sequence <optional>:** <you can have more than one alternate sequence to describe multiple issues that may arise>
-  
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
+@Jiaheng
+### 1. Sell Items
+- Pre-condition: User must be logged into their account
+- Trigger: User selects the "Sell item" button
+- Primary Sequence:
+    1. User log into their account
+    2. Select "Sell item" button
+    3. User enter description of item
+    4. User select bid or sell at a fix price
+    5. User enter bid price or item pirce
+    6. Select confirm
+- Primary Postconditions:The user must be registered and have a valid profile
+- Alternate Sequence:
+  1. User Enter the wrong price
+     1. Have the option to confirm the price to see if the value exists. if the value is valid but customer enter the value by mistake have the delete button.
   
 ### 2. Post items
 
@@ -149,7 +119,32 @@ Trigger: Customer select "Post item" option
      1. System will pop up message verify each changing, (Yes or No)
      2. User needs select(click) "save" button to save changed
 
-### 5. 5
+@Jiaheng
+### 5. Adding Pictures
+- **Pre-condition:** User must be logged in, and must be a seller
+
+- **Trigger:** User click on "Add Image" button
+
+- **Primary Sequence:**
+  1. User(customer) has logged in first
+  2. User need to click on adding picture option 
+  3. User must select an image file type .jpg
+  4. System will show confirmation text
+  5. User can select "edit" button to resize picture
+  6. User click on confirmation to add the picture.
+
+- **Primary Postconditions:** User must be logged in, and must be selling an item or have a valid profile picture to upload.
+
+- **Alternate Sequence:**
+  1. User upload the wrong file type
+     1. The system will prompt a message showing "Invalid File Type please upload a picture of .jpg type"
+     2. System will check file type again to confirm 
+
+- **Alternate Sequence:**
+  1. User edit information
+     1. System will pop up message verify each changing, (Yes or No)
+     2. User needs select(click) "save" button to save changed
+  
 ### 6. **Sorting** 
 - **Pre-condition:** Sort listings by conditions.
 
