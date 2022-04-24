@@ -11,7 +11,11 @@
   Our team decide the 12 use case function to implement on our website, and further discuss what we need to be completed this week. Our main focus before the next meeting is to complete the first four function login, logout, register, and delete. After finishg the 4 function we will assign group memeber to work on the remaining function. 
 
 ### 2022-04-19
--next meeting
+-Attended: Xiyuan Zhou, Jiaheng Fang, Rommel Aquino Jr, Ahmet Mutlugun
+-Team updates
+  -talk
 
 ### 2022-04-24
 -Attended: Xiyuan Zhou, Jiaheng Fang, Rommel Aquino Jr, Ahmet Mutlugun
+
+
