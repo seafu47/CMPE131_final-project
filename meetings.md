@@ -12,3 +12,6 @@
 
 ### 2022-04-19
 -next meeting
+
+### 2022-04-24
+-Attended: Xiyuan Zhou, Jiaheng Fang, Rommel Aquino Jr, Ahmet Mutlugun
