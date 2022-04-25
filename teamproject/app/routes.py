@@ -1,14 +1,12 @@
-from flask import render_template,flash, url_for, redirect,request
-from flask_login import login_user,login_required, current_user,logout_user
+from flask import render_template, flash, url_for, redirect, request
+from flask_login import login_user, login_required, current_user, logout_user
 
-from app import app,bcrypt,db
-from app.forms import RegisterForm,LoginForm
+from app import app, bcrypt, db
+from app.forms import RegisterForm, LoginForm
 from app.models import User
 
 
-
-
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 @login_required
 def index():
     par = {
@@ -18,13 +16,14 @@ def index():
     }
 
     return render_template('index.html',
-                           title = 'Home',
-                           par = par)
+                           title='Home',
+                           par=par)
 
-@app.route('/register',methods=['GET','POST'])
+
+@app.route('/register', methods=['GET', 'POST'])
 def register():
-    #if the user already login return to main html
-    #no need register
+    # if the user already login return to main html
+    # no need register
     if current_user.is_authenticated:
         return redirect(url_for('index'))
 
@@ -33,18 +32,18 @@ def register():
         username = form.username.data
         email = form.email.data
         password = bcrypt.generate_password_hash(form.password.data)
-        user1 = User(username=username,email=email,password=password)
+        user1 = User(username=username, email=email, password=password)
         db.session.add(user1)
         db.session.commit()
         flash('Congrats, register success', category='success')
         return redirect(url_for('index'))
 
-    return render_template('register.html',form = form)
+    return render_template('register.html', form=form)
 
 
-@app.route('/login', methods=['GET','POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    #if the user already log in return to main html
+    # if the user already log in return to main html
     if current_user.is_authenticated:
         return redirect(url_for('index'))
 
@@ -62,7 +61,8 @@ def login():
             flash('Log in successful', category='info')
             return redirect(url_for('index'))
         flash('Password not match', category='danger')
-    return render_template('login.html', form = form)
+    return render_template('login.html', form=form)
+
 
 @app.route('/logout')
 def logout():
