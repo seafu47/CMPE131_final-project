@@ -27,9 +27,29 @@
             <a href="{{ url_for('register') }}">Register</a>
           </li>
         {% else %}
+          <li class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >Account<span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-label="dropdownMenu1">
+              <li class="{% if request.endpoint == 'profile' %}active{% endif %}">
+                <a href="{{ url_for('index') }}">Profile</a>
+              </li>
+              <li class="{% if request.endpoint == 'logout' %}active{% endif %}" >
+                <a href="{{ url_for('logout') }}">Logout</a>
+              </li>
+            </ul>
+          </li>
+        <!--
           <li class="{% if request.endpoint == 'logout' %}active{% endif %}" >
             <a href="{{ url_for('logout') }}">Logout</a>
           </li>
+          <ul class="nav navbar-nav navbar-left">
+            <li class="{% if request.endpoint == 'profile' %}active{% endif %}">
+             <a href="{{ url_for('index') }}">Profile</a>
+            </li>
+          </ul>
+          -->
         {% endif %}
         <li>
           <button class="button" onclick="darkMode()">Dark mode</button>

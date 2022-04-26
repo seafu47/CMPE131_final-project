@@ -19,3 +19,9 @@
 -Attended: Xiyuan Zhou, Jiaheng Fang, Rommel Aquino Jr, Ahmet Mutlugun
 
 
+### 2022-04-26
+-Attended: Xiyuan Zhou, Jiaheng Fang, Rommel Aquino Jr, Ahmet Mutlugun
+-Team updates
+  -Talk
+  -upload pictures
+  -fix bugs
