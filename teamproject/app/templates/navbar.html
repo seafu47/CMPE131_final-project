@@ -32,7 +32,7 @@
           </li>
         {% endif %}
         <li>
-          <button class="button" onclick="darkMode()">Dark mode</button>
+          <a class = "button" onclick="darkMode()">Dark mode</a>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -42,23 +42,19 @@
 <style>
 
 .dark_mode {
-  color: white;
-  background-color: black;
+  color: #c1c1c1;
+  background-color: #202124;
 }
 
 .button {
-  background-color: #F8F8F8;
-  border: none;
-  color: #777777;
-  padding: 9px 8px;
-  font-size: 16px;
-  margin: 4px 2px;
   cursor: pointer;
 }
+
 </style>
 
 <script>
-function darkMode() {
+async function darkMode() {
     document.body.classList.toggle("dark_mode");
 }
+
 </script>
