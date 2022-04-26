@@ -3,5 +3,9 @@
 {% block content %}
     <h1>Hello, {{ current_user.username }} </h1>
     <p>This is the sell and buy page.</p>
-
+    <p>
+        <form method ='post' action = "/upload">
+            <input type="submit" value="Upload" name="action1"/>
+        </form>
+    </p>
 {% endblock %}
