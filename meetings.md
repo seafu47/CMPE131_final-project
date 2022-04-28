@@ -25,3 +25,6 @@
   -Talk
   -upload pictures
   -fix bugs
+
+### 2022-04-28
+-Attended: Xiyuan Zhou, Jiaheng Fang, Rommel Aquino Jr, Ahmet Mutlugun
