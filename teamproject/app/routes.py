@@ -7,11 +7,14 @@ from app import app, bcrypt, db
 from app.forms import RegisterForm, LoginForm
 from app.models import User
 
+from teamproject.app.forms import DeleteUserForm
 
-AllOWED_EXTENSIONS = (['png','jpg'])
+AllOWED_EXTENSIONS = (['png', 'jpg'])
+
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in AllOWED_EXTENSIONS
+
 
 @app.route('/', methods=['GET', 'POST'])
 @login_required
@@ -25,10 +28,23 @@ def index():
         if request.form.get('action1') == 'Upload':
             pass
 
-
     return render_template('index.html',
                            title='Home',
                            par=par)
+
+
+@app.route('/profile', methods=['GET', 'POST'])
+@login_required
+def profile():
+    form = DeleteUserForm()
+
+    if form.validate_on_submit():
+        # TODO: Delete account here
+        flash("Account deleted.")
+        return redirect(url_for('index'))
+
+    return render_template('profile.html',
+                           title='Profile', form=form)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -85,7 +101,8 @@ def logout():
 def upload_form():
     return render_template('upload.html')
 
-@app.route('/upload', methods = ['POST'])
+
+@app.route('/upload', methods=['POST'])
 @login_required
 def upload_image():
     if 'file' not in request.files:
@@ -99,7 +116,7 @@ def upload_image():
 
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
-        file.save = (os.path.join(app.config['UPLOAD_FOLDER'],filename))
+        file.save = (os.path.join(app.config['UPLOAD_FOLDER'], filename))
         flash("Image successfully uploaded")
         return render_template('upload.html', filename=filename)
     else:

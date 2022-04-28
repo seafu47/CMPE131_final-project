@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hello, {{ current_user.username }} </h1>
+    <p>This is the profile page.</p>
+    <p>
+{#        <form action = "{{url_for('user.delete_account') }}" method ='post'>#}
+{#            <input class = "rainbow-box" type="submit" value="DELETE ACCOUNT" name="delete_account"/>#}
+{#        </form>#}
+        <form method="post" action="">
+            {{ form.hidden_tag() }}
+            {{ form.delete() }}
+        </form>
+    </p>
+    <style>
+    input{
+        color: red;
+        background-color: white;
+    }
+}
+    </style>
+{% endblock %}
