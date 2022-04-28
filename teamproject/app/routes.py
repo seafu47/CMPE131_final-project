@@ -7,7 +7,7 @@ from app import app, bcrypt, db
 from app.forms import RegisterForm, LoginForm
 from app.models import User
 
-from teamproject.app.forms import DeleteUserForm
+from app.forms import DeleteUserForm
 
 AllOWED_EXTENSIONS = (['png', 'jpg'])
 
