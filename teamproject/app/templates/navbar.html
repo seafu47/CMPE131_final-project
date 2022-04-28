@@ -34,7 +34,7 @@
             </button>
             <ul class="dropdown-menu" aria-label="dropdownMenu1">
               <li class="{% if request.endpoint == 'profile' %}active{% endif %}">
-                <a href="{{ url_for('index') }}">Profile</a>
+                <a href="{{ url_for('profile') }}">Profile</a>
               </li>
               <li class="{% if request.endpoint == 'logout' %}active{% endif %}" >
                 <a href="{{ url_for('logout') }}">Logout</a>

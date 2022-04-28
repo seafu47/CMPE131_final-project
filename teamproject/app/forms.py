@@ -31,3 +31,7 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired(), Length(min=8, max=20)])
     remember = BooleanField('Remember')
     submit = SubmitField('Sign In')
+
+
+class DeleteUserForm(FlaskForm):
+    delete = SubmitField('Delete Account')
