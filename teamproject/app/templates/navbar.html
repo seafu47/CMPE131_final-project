@@ -27,6 +27,7 @@
             <a href="{{ url_for('register') }}">Register</a>
           </li>
         {% else %}
+          <p class="navbar-text">Hi, {{ current_user.username }}</p>
           <li class="btn-group">
             <button class="btn btn-default btn-lg dropdown-toggle" type="button" id="dropdownMenu1"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >Account<span class="caret"></span>
