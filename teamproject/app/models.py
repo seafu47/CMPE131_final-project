@@ -1,5 +1,4 @@
 from flask_login import UserMixin
-
 from app import db, login
 
 
@@ -10,6 +9,7 @@ def load_user(user_id):
 
 # Add usermixin can check/verify user login
 class User(db.Model, UserMixin):
+    __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)
     password = db.Column(db.String(20), nullable=False)
@@ -18,3 +18,21 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return '<User %r>' % self.username
+
+class Products(db.Model):
+    product_id = db.Column(db.Integer,primary_key=True,autoincrement=True)
+
+    #name of the products
+    product_name = db.Column(db.String(50),nullable=False)
+
+    #price of the products
+    product_price = db.Column(db.Float,nullable=False)
+
+    #information of the products
+    product_info = db.Column(db.Text,nullable=False)
+
+    product_img = db.Column(db.String(100), nullable=False)
+    #product_createtime = db.Column(db.DateTime,default=datetime.now)
+
+    product_seller_user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    users = db.relationship('User', backref=db.backref('products'))
