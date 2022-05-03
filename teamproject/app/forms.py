@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm, RecaptchaField
+from flask_wtf.file import FileField, FileRequired
 from wtforms import StringField, PasswordField, EmailField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 
@@ -35,3 +36,7 @@ class LoginForm(FlaskForm):
 
 class DeleteUserForm(FlaskForm):
     delete = SubmitField('Delete Account')
+
+class UploadPhotoForm(FlaskForm):
+    photo = FileField(validators=[FileRequired()])
+    submit = SubmitField('Upload')

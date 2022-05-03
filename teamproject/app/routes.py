@@ -4,13 +4,13 @@ import os
 from werkzeug.utils import secure_filename
 
 from app import app, bcrypt, db
-from app.forms import RegisterForm, LoginForm
+from app.forms import RegisterForm, LoginForm, UploadPhotoForm
 from app.models import User
 
 from app.forms import DeleteUserForm
 
-AllOWED_EXTENSIONS = (['png', 'jpg'])
-
+#AllOWED_EXTENSIONS = (['png', 'jpg'])
+AllOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in AllOWED_EXTENSIONS
@@ -97,9 +97,22 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route('/upload')
+@app.route('/upload',methods=['GET', 'POST'])
 def upload_form():
-    return render_template('upload.html')
+    form = UploadPhotoForm()
+    if form.validate_on_submit():
+        # get photo data
+        f = form.photo.data
+        filename = secure_filename(f.filename)
+        if f.filename == '':
+            flash('No image selected')
+            # back to previous page
+            return render_template('upload.html',form=form)
+
+        if f and allowed_file(f.filename):
+            filename = secure_filename(f.filename)
+            f.save(os.path.join('app','static','uploads', filename))
+    return render_template('upload.html',form=form)
 
 
 @app.route('/upload', methods=['POST'])
