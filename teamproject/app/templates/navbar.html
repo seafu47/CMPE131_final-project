@@ -27,6 +27,9 @@
             <a href="{{ url_for('register') }}" style="color: white">Register</a>
           </li>
         {% else %}
+          <li>
+            <input type="search" style="text-align: left; margin-top: 12px; margin-right: 5px" id="search" placeholder="Search..">
+          </li>
           <p class="navbar-text">Hi, {{ current_user.username }}</p>
           <li class="dropdown">
             <!--
