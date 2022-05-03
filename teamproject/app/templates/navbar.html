@@ -39,6 +39,11 @@
               <li class="{% if request.endpoint == 'profile' %}active{% endif %}">
                 <a href="{{ url_for('profile') }}">Profile</a>
               </li>
+
+              <li class="{% if request.endpoint == 'upload_form' %}active{% endif %}">
+                <a href="{{ url_for('upload_form') }}">Upload Photo</a>
+              </li>
+
               <li class="{% if request.endpoint == 'logout' %}active{% endif %}" >
                 <a href="{{ url_for('logout') }}">Logout</a>
               </li>
