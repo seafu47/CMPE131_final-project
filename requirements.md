@@ -2,9 +2,9 @@
 ## Functional Requirements
 
 1. Login - Xiyuan Zhou
-2. Logout - Rommel Aquino Jr
-3. Create Account - Jiaheng Fang
-4. Delete Account - Jiaheng Fang
+2. Logout - Xiyuan Zhou
+3. Create Account - Xiyuan Zhou
+4. Delete Account - Ahmet Mutlugun
 5. Search Items - Rommel Aquino Jr 
 6. Post Items - Rommel Aquino Jr 
 7. Delete Item - Xiyuan Zhou
@@ -18,7 +18,7 @@
 
 1. Chinese Language
 2. Turkish Language
-3. Dark Mode
+3. Dark Mode - Ahmet Mutlugun
 4. Smooth interface
 
 ## Use Cases
