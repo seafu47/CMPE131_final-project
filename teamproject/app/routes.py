@@ -40,6 +40,8 @@ def profile():
 
     if form.validate_on_submit():
         # TODO: Delete account here
+        User.query.filter_by(id=current_user.get_id()).delete()
+        db.session.commit()
         flash("Account deleted.")
         return redirect(url_for('index'))
 
