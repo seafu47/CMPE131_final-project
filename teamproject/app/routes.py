@@ -1,4 +1,4 @@
-from flask import render_template, flash, url_for, redirect, request
+from flask import render_template, flash, url_for, redirect, request, session
 from flask_login import login_user, login_required, current_user, logout_user
 import os
 from werkzeug.utils import secure_filename
@@ -42,7 +42,8 @@ def profile():
         # TODO: Delete account here
         User.query.filter_by(id=current_user.get_id()).delete()
         db.session.commit()
-        flash("Account deleted.")
+        session.pop('_flashes', None)
+        flash("Account deleted.", category='info')
         return redirect(url_for('index'))
 
     return render_template('profile.html',
@@ -64,6 +65,7 @@ def register():
         user1 = User(username=username, email=email, password=password)
         db.session.add(user1)
         db.session.commit()
+        session.pop('_flashes', None)
         flash('Congrats, register success', category='success')
         return redirect(url_for('index'))
 
@@ -72,6 +74,7 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+
     # if the user already log in return to main html
     if current_user.is_authenticated:
         return redirect(url_for('index'))
@@ -87,15 +90,19 @@ def login():
             if request.args.get('next'):
                 next_page = request.args.get('next')
                 return redirect(next_page)
+            session.pop('_flashes', None)
             flash('Log in successful', category='info')
             return redirect(url_for('index'))
-        flash('Password not match', category='danger')
+        session.pop('_flashes', None)
+        flash('Password does not match username!', category='danger')
     return render_template('login.html', form=form)
 
 
 @app.route('/logout')
 def logout():
     logout_user()
+    session.pop('_flashes', None)
+    flash('You were successfully logged out', category='info')
     return redirect(url_for('login'))
 
 
