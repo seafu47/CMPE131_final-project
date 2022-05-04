@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm, RecaptchaField
-from flask_wtf.file import FileField, FileRequired
-from wtforms import StringField, PasswordField, EmailField, SubmitField, BooleanField
+from flask_wtf.file import FileField, FileRequired, FileAllowed
+from wtforms import StringField, PasswordField, EmailField, SubmitField, BooleanField, Form, validators, IntegerField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 
 from app.models import User
@@ -36,6 +36,13 @@ class LoginForm(FlaskForm):
 
 class DeleteUserForm(FlaskForm):
     delete = SubmitField('Delete Account')
+
+class AddProduct(Form):
+    product_name = StringField('Name', [validators.DataRequired()])
+    product_price = IntegerField('Price', [validators.DataRequired()])
+    information = TextAreaField('information', [validators.DataRequired()])
+
+    image_1 = FileField('Image 1', validators=[FileRequired(), FileAllowed(['jpg','png','jpeg'], 'images only please')])
 
 class UploadPhotoForm(FlaskForm):
     photo = FileField(validators=[FileRequired()])

@@ -4,8 +4,8 @@ import os
 from werkzeug.utils import secure_filename
 
 from app import app, bcrypt, db
-from app.forms import RegisterForm, LoginForm, UploadPhotoForm
-from app.models import User
+from app.forms import RegisterForm, LoginForm, UploadPhotoForm, AddProduct
+from app.models import User, Products
 
 from app.forms import DeleteUserForm
 
@@ -120,10 +120,11 @@ def upload_form():
 
         if f and allowed_file(f.filename):
             filename = secure_filename(f.filename)
-            f.save(os.path.join('app','static','uploads', filename))
+            f.save(os.path.join('app', 'static', 'uploads', filename))
     return render_template('upload.html',form=form)
 
 
+"""
 @app.route('/upload', methods=['POST'])
 @login_required
 def upload_image():
@@ -144,7 +145,7 @@ def upload_image():
     else:
         flash("Allowed image types are .png file")
         return redirect(request.url)
-
+"""
 
 @app.route('/display/<filename>')
 def display_image(filename):

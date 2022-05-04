@@ -9,11 +9,11 @@ def load_user(user_id):
 
 # Add usermixin can check/verify user login
 class User(db.Model, UserMixin):
-    __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)
     password = db.Column(db.String(20), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
+    product = db.relationship('Products', backref=db.backref('author', lazy=True))
     #photo_image = db.Column(db.String(120), default='static/uploads/dog_PNG50321.png', nullable=False)
 
     def __repr__(self):
@@ -34,5 +34,5 @@ class Products(db.Model):
     product_img = db.Column(db.String(100), nullable=False)
     #product_createtime = db.Column(db.DateTime,default=datetime.now)
 
-    product_seller_user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    users = db.relationship('User', backref=db.backref('products'))
+    product_seller_user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    #users = db.relationship('User', backref=db.backref('author', lazy=True))
