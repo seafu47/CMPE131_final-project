@@ -40,18 +40,28 @@
 {% extends 'base.html' %}
 
 {% block app_content %}
-<form class="form-horizontal">
-  <fieldset>
-    <legend>UPLOAD PRODUCTS</legend>
+{#    #}
+{#<form class="form-horizontal">#}
+{#  <fieldset>#}
+{#    <legend>UPLOAD PRODUCTS</legend>#}
+{#    <div class="col-md-6">#}
+{#        {% import 'bootstrap/wtf.html' as wtf %}#}
+{#        {{ wtf.quick_form(form) }}#}
+{#    </div>#}
+{#    <br>#}
+{#  </fieldset>#}
+{#</form>#}
+{##}
+{#<br>#}
+{#<br>#}
+
+    <h1>Upload Form</h1>
+    <br>
+    <fieldset>
     <div class="col-md-6">
         {% import 'bootstrap/wtf.html' as wtf %}
         {{ wtf.quick_form(form) }}
+    </fieldset>
     </div>
-    <br>
-  </fieldset>
-</form>
-
-<br>
-<br>
 
 {% endblock %}
