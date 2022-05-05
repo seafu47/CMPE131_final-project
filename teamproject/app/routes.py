@@ -9,8 +9,9 @@ from app.models import User, Products
 
 from app.forms import DeleteUserForm
 
-#AllOWED_EXTENSIONS = (['png', 'jpg'])
+# AllOWED_EXTENSIONS = (['png', 'jpg'])
 AllOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
+
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in AllOWED_EXTENSIONS
@@ -74,7 +75,6 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-
     # if the user already log in return to main html
     if current_user.is_authenticated:
         return redirect(url_for('index'))
@@ -106,30 +106,31 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route('/upload',methods=['GET', 'POST'])
+@app.route('/upload', methods=['GET', 'POST'])
 def upload_form():
     form = AddProduct()
     if form.validate_on_submit():
+        print("Form Submitted")
         product_name = form.product_name.data
         product_price = form.product_price.data
         product_infor = form.product_info.data
-        p1 = Products(product_name=product_name,product_price='',product_info='',)
+        p1 = Products(product_name=product_name, product_price=product_price, product_info=product_infor)
         current_user.product.append(p1)
         db.session.commit()
         # get photo data
-        f = form.photo.data
+        f = form.image_1.data
         filename = secure_filename(f.filename)
-        flash('Add Product success',category='success')
+        flash('Add Product success', category='success')
         if f.filename == '':
             flash('No image selected')
             # back to previous page
-            return render_template('upload.html',form=form)
+            return render_template('upload.html', form=form)
 
         if f and allowed_file(f.filename):
             filename = secure_filename(f.filename)
-            f.save(os.path.join('app', 'static', 'products', filename))
+            f.save(os.getcwd() + "/app/static/uploads/" + filename)
     pro_item = Products.query.order_by(Products.product_name).all()
-    return render_template('upload.html',form=form,pro_item=pro_item)
+    return render_template('upload.html', form=form, pro_item=pro_item)
 
 
 """
@@ -154,6 +155,7 @@ def upload_image():
         flash("Allowed image types are .png file")
         return redirect(request.url)
 """
+
 
 @app.route('/display/<filename>')
 def display_image(filename):

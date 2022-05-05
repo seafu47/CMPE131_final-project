@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm, RecaptchaField
 from flask_wtf.file import FileField, FileRequired, FileAllowed
-from wtforms import StringField, PasswordField, EmailField, SubmitField, BooleanField, Form, validators, IntegerField, TextAreaField
+from wtforms import StringField, PasswordField, EmailField, SubmitField, BooleanField, Form, validators, IntegerField, \
+    TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 
 from app.models import User
@@ -37,19 +38,21 @@ class LoginForm(FlaskForm):
 class DeleteUserForm(FlaskForm):
     delete = SubmitField('Delete Account')
 
+
 class AddProduct(FlaskForm):
-    #product_name = StringField('Product Name', [validators.DataRequired()])
-    #product_id = IntegerField('Product Id', validators=[DataRequired(), Length(min=6, max=20)])
-    #product_price = IntegerField('Product Price', validators=[DataRequired(), Length(min=6, max=20)])
-    #information = TextAreaField('Description', [validators.DataRequired()])
+    # product_name = StringField('Product Name', [validators.DataRequired()])
+    # product_id = IntegerField('Product Id', validators=[DataRequired(), Length(min=6, max=20)])
+    # product_price = IntegerField('Product Price', validators=[DataRequired(), Length(min=6, max=20)])
+    # information = TextAreaField('Description', [validators.DataRequired()])
 
     product_name = StringField('Product Name', [validators.DataRequired()])
-    #product_id = IntegerField('Product Id')
+    # product_id = IntegerField('Product Id')
     product_price = IntegerField('Product Price')
-    product_info  = TextAreaField('Description')
-    image_1 = FileField('Upload Image', validators=[FileAllowed(['jpg','png','jpeg'], 'images only please')])
+    product_info = TextAreaField('Description')
+    image_1 = FileField('Upload Image', validators=[FileAllowed(['jpg', 'png', 'jpeg'], 'images only please')])
 
     submit = SubmitField('Submit')
+
 
 class UploadPhotoForm(FlaskForm):
     photo = FileField(validators=[FileRequired()])
