@@ -129,7 +129,8 @@ def upload_form():
         if f and allowed_file(f.filename):
             filename = secure_filename(f.filename)
             f.save(os.getcwd() + "/app/static/uploads/" + filename)
-    pro_item = Products.query.order_by(Products.product_name).all()
+        return redirect(url_for('index'))
+    pro_item = Products.query.all()
     return render_template('upload.html', form=form, pro_item=pro_item)
 
 

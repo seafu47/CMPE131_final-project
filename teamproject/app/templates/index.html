@@ -12,8 +12,8 @@
     ---->
 <br>
     <h1>
-        {% for prname in pro_item %}
-            {{ prname }}
+        {% for index in current_user.product %}
+            {{ index.product_name }}
         {% endfor %}
     </h1>
 
