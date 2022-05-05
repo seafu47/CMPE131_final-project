@@ -110,8 +110,10 @@ def logout():
 def upload_form():
     form = AddProduct()
     if form.validate_on_submit():
-        product_name1 = form.product_name.data
-        p1 = Products(product_name1=product_name1)
+        product_name = form.product_name.data
+        product_price = form.product_price.data
+        product_infor = form.product_info.data
+        p1 = Products(product_name=product_name,product_price='',product_info='',)
         current_user.product.append(p1)
         db.session.commit()
         # get photo data

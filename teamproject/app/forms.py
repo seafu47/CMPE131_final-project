@@ -44,9 +44,9 @@ class AddProduct(FlaskForm):
     #information = TextAreaField('Description', [validators.DataRequired()])
 
     product_name = StringField('Product Name', [validators.DataRequired()])
-    product_id = IntegerField('Product Id')
+    #product_id = IntegerField('Product Id')
     product_price = IntegerField('Product Price')
-    information = TextAreaField('Description')
+    product_info  = TextAreaField('Description')
     image_1 = FileField('Upload Image', validators=[FileAllowed(['jpg','png','jpeg'], 'images only please')])
 
     submit = SubmitField('Submit')
