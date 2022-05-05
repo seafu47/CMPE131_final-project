@@ -37,12 +37,19 @@ class LoginForm(FlaskForm):
 class DeleteUserForm(FlaskForm):
     delete = SubmitField('Delete Account')
 
-class AddProduct(Form):
-    product_name = StringField('Name', [validators.DataRequired()])
-    product_price = IntegerField('Price', [validators.DataRequired()])
-    information = TextAreaField('information', [validators.DataRequired()])
+class AddProduct(FlaskForm):
+    #product_name = StringField('Product Name', [validators.DataRequired()])
+    #product_id = IntegerField('Product Id', validators=[DataRequired(), Length(min=6, max=20)])
+    #product_price = IntegerField('Product Price', validators=[DataRequired(), Length(min=6, max=20)])
+    #information = TextAreaField('Description', [validators.DataRequired()])
 
-    image_1 = FileField('Image 1', validators=[FileRequired(), FileAllowed(['jpg','png','jpeg'], 'images only please')])
+    product_name = StringField('Product Name', [validators.DataRequired()])
+    product_id = IntegerField('Product Id')
+    product_price = IntegerField('Product Price')
+    information = TextAreaField('Description')
+    image_1 = FileField('Upload Image', validators=[FileAllowed(['jpg','png','jpeg'], 'images only please')])
+
+    submit = SubmitField('Submit')
 
 class UploadPhotoForm(FlaskForm):
     photo = FileField(validators=[FileRequired()])

@@ -108,11 +108,16 @@ def logout():
 
 @app.route('/upload',methods=['GET', 'POST'])
 def upload_form():
-    form = UploadPhotoForm()
+    form = AddProduct()
     if form.validate_on_submit():
+        product_name1 = form.product_name.data
+        p1 = Products(product_name1=product_name1)
+        current_user.product.append(p1)
+        db.session.commit()
         # get photo data
         f = form.photo.data
         filename = secure_filename(f.filename)
+        flash('Add Product success',category='success')
         if f.filename == '':
             flash('No image selected')
             # back to previous page
@@ -120,8 +125,9 @@ def upload_form():
 
         if f and allowed_file(f.filename):
             filename = secure_filename(f.filename)
-            f.save(os.path.join('app', 'static', 'uploads', filename))
-    return render_template('upload.html',form=form)
+            f.save(os.path.join('app', 'static', 'products', filename))
+    pro_item = Products.query.order_by(Products.product_name).all()
+    return render_template('upload.html',form=form,pro_item=pro_item)
 
 
 """
