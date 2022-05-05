@@ -1,4 +1,4 @@
-from flask import render_template, flash, url_for, redirect, request, session
+from flask import render_template, flash, url_for, redirect, request, session, get_flashed_messages
 from flask_login import login_user, login_required, current_user, logout_user
 import os
 from werkzeug.utils import secure_filename
@@ -92,6 +92,7 @@ def login():
                 return redirect(next_page)
             session.pop('_flashes', None)
             flash('Log in successful', category='info')
+            get_flashed_messages()
             return redirect(url_for('index'))
         session.pop('_flashes', None)
         flash('Password does not match username!', category='danger')

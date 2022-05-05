@@ -3,8 +3,10 @@ from flask_login import LoginManager
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
-
 from config import Config
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
 
 UPLOAD_FOLDER = 'static/uploads/'
 
