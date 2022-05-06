@@ -1,8 +1,59 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Hello, {{ current_user.username }} </h1>
-    <p>This is the profile page.</p>
+    <!--<h1>{{ current_user.username }} </h1>-->
+    <div class="profile-pic">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg" style="margin-left: 30px;border: 5px solid #555; border-radius: 50%; width: 200px; height: 200px">
+        <div class="middle">
+            <button class="text">Edit Photo</button>
+        </div>
+    </div>
+    <h1>{{ current_user.username }} </h1>
+    <style>
+    h1 {
+        margin-left: 35px;
+    }
+    .profile-pic {
+        position: relative;
+        width: 260px;
+    }
+
+    .image {
+        opacity: 1;
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: .5s ease;
+        backface-visibility: hidden;
+    }
+
+    .middle {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .profile-pic:hover .image {
+        opacity: 0.3;
+    }
+
+    .profile-pic:hover .middle {
+        opacity: 1;
+    }
+
+    .text {
+        background-color: #999999;
+        color: white;
+        font-size: 16px;
+        padding: 16px 32px;
+    }
+    </style>
+    <!--<p>This is the profile page.</p>-->
     <p>
 {#        <form action = "{{url_for('user.delete_account') }}" method ='post'>#}
 {#            <input class = "rainbow-box" type="submit" value="DELETE ACCOUNT" name="delete_account"/>#}
