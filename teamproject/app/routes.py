@@ -20,18 +20,16 @@ def allowed_file(filename):
 @app.route('/', methods=['GET', 'POST'])
 @login_required
 def index():
-    par = {
-        'section1',
-        'section2',
-        'section3'
-    }
+    #form = AddProduct()
+    pro_items = Products.query.all()
+    """
     if request.method == "POST":
         if request.form.get('action1') == 'Upload':
             pass
-
+    """
     return render_template('index.html',
                            title='Home',
-                           par=par)
+                           pro_items=pro_items)
 
 
 @app.route('/profile', methods=['GET', 'POST'])
@@ -120,7 +118,6 @@ def upload_form():
         # get photo data
         f = form.image_1.data
         filename = secure_filename(f.filename)
-        flash('Add Product success', category='success')
         if f.filename == '':
             flash('No image selected')
             # back to previous page
@@ -129,9 +126,10 @@ def upload_form():
         if f and allowed_file(f.filename):
             filename = secure_filename(f.filename)
             f.save(os.getcwd() + "/app/static/uploads/" + filename)
+        flash('Add Product success', category='success')
         return redirect(url_for('index'))
-    pro_item = Products.query.all()
-    return render_template('upload.html', form=form, pro_item=pro_item)
+    #pro_item = Products.query.all()
+    return render_template('upload.html', form=form)
 
 
 """

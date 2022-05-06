@@ -1,8 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Hello, {{ current_user.username }} </h1>
-    <p>This is the sell and buy page.</p>
+<div class="container">
+    <div class="row bootstrap snippets bootdeys" id="store-list">
+        {% for temp in pro_items %}
+        <div class="col-md-6 col-xs-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <a href="#"><img src="https://dogtowndogtraining.com/wp-content/uploads/2012/06/300x300-061-e1340955308953.jpg" class="img-responsive"></a>
+                        </div>
+                        <div class="col-sm-7">
+                            <h4 class="title-store">
+                                <strong><a href="#">{{ temp.product_name }}</a></strong>
+                            </h4>
+                            <hr>
+                            <p>{{ temp.product_info }}</p>
+                            <p>
+                                <a href="#" class="btn btn-default" disabled="" data-original-title="" title="">${{ temp.product_price }}</a>
+                                <a href="#" class="btn btn-success" data-original-title="" title="">Bid</a>
+                                <a href="#" class="btn btn-warning pull-right" data-original-title="" title="">Buy Now</a>
+                            </p>
+                            <p style="text-align:right"><small>Sell by {{ temp.author.username }}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 <!----
     <p>
         <form method ='post' action = "/upload">
@@ -10,11 +39,21 @@
         </form>
     </p>
     ---->
+<!----
 <br>
     <h1>
         {% for index in current_user.product %}
             {{ index.product_name }}
         {% endfor %}
     </h1>
+
+<br>
+
+<h1>
+    {% for temp in pro_items %}
+        {{ temp.product_name }}
+    {% endfor %}
+</h1>
+----->
 
 {% endblock %}
