@@ -26,3 +26,5 @@ Our website uses flask with python to create a shopping interface. Bycrypt and S
 - Post Item
 - Post Images
 - Dark Mode
+- Searching
+- Sorting
