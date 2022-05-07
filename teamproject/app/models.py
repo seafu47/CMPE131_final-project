@@ -31,6 +31,8 @@ class Products(db.Model):
     #information of the products
     product_info = db.Column(db.Text,nullable=False)
 
+    product_image = db.Column(db.String, nullable=False)
+
     #Eproduct_img = db.Column(db.String(100), nullable=False)
     #product_createtime = db.Column(db.DateTime,default=datetime.now)
 

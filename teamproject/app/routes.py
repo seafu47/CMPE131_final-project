@@ -1,6 +1,8 @@
 from flask import render_template, flash, url_for, redirect, request, session
 from flask_login import login_user, login_required, current_user, logout_user
 import os
+import string
+import random
 from werkzeug.utils import secure_filename
 
 from app import app, bcrypt, db
@@ -20,7 +22,7 @@ def allowed_file(filename):
 @app.route('/', methods=['GET', 'POST'])
 @login_required
 def index():
-    #form = AddProduct()
+    # form = AddProduct()
     pro_items = Products.query.all()
     """
     if request.method == "POST":
@@ -112,7 +114,9 @@ def upload_form():
         product_name = form.product_name.data
         product_price = form.product_price.data
         product_infor = form.product_info.data
-        p1 = Products(product_name=product_name, product_price=product_price, product_info=product_infor)
+        image_name = ''.join(random.choice(string.ascii_letters) for i in range(16))
+        p1 = Products(product_name=product_name, product_price=product_price, product_info=product_infor,
+                      product_image=image_name)
         current_user.product.append(p1)
         db.session.commit()
         # get photo data
@@ -123,12 +127,12 @@ def upload_form():
             # back to previous page
             return render_template('upload.html', form=form)
 
-        if f and allowed_file(f.filename):
-            filename = secure_filename(f.filename)
+        if f and allowed_file(image_name+'.png'):
+            filename = secure_filename(image_name+'.png')
             f.save(os.getcwd() + "/app/static/uploads/" + filename)
         flash('Add Product success', category='success')
         return redirect(url_for('index'))
-    #pro_item = Products.query.all()
+    # pro_item = Products.query.all()
     return render_template('upload.html', form=form)
 
 
