@@ -18,6 +18,9 @@
                 <li class="{% if request.endpoint == 'index' %}active{% endif %}">
                     <a href="{{ url_for('index') }}" style="color: white">Home</a>
                 </li>
+                <li>
+                    <a href="{{ url_for('sorting') }}" style="color: white">Sorting</a>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if not current_user.is_authenticated %}

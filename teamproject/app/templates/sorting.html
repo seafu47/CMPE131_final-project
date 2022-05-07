@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% set test1 = pro_items %}
+
+<div class="container">
+    <div class="row bootstrap snippets bootdeys" id="store-list">
+        {% set sort_on = request.args.sort_on|default('product_name') %}
+        {% for testt in test1|sort(attribute=sort_on) %}
+        <div class="col-md-6 col-xs-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <a href="#"><img src="https://dogtowndogtraining.com/wp-content/uploads/2012/06/300x300-061-e1340955308953.jpg" class="img-responsive"></a>
+                        </div>
+                        <div class="col-sm-7">
+                            <h4 class="title-store">
+                                <strong><a href="#">{{ testt.product_name }}</a></strong>
+                            </h4>
+                            <hr>
+                            <p>{{ testt.product_info }}</p>
+                            <p>
+                                <a href="#" class="btn btn-default" disabled="" data-original-title="" title="">${{ testt.product_price }}</a>
+                                <a href="#" class="btn btn-success" data-original-title="" title="">Bid</a>
+                                <a href="#" class="btn btn-warning pull-right" data-original-title="" title="">Buy Now</a>
+                            </p>
+                            <p style="text-align:right"><small>Sell by {{ testt.author.username }}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
