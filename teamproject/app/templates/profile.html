@@ -54,9 +54,62 @@
         font-size: 16px;
         padding: 16px 32px;
     }
+
+    table {
+         border: 10px;
+         border-radius: 25px;
+         background: #F1F1F1
+    }
+
+    th {
+        font-size: 20px;
+        margin-left: 10px;
+    }
+
+    td {
+        font-size: 30px;
+    }
     </style>
     <!--<p>This is the profile page.</p>-->
-    <p>
+    <table style="width: 50%; margin-left: 30px">
+        <!--<h3 style="margin-left: 30px">Account</h3>-->
+        <tr>
+            <td>Account</td>
+        </tr>
+        <tr>
+            <th>Username</th>
+            <th>{{ current_user.username }}</th>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <th>{{ current_user.email }}</th>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <th></th>
+        </tr>
+        <tr>
+            <th>
+                <p>
+            {#        <form action = "{{url_for('user.delete_account') }}" method ='post'>#}
+            {#            <input class = "rainbow-box" type="submit" value="DELETE ACCOUNT" name="delete_account"/>#}
+            {#        </form>#}
+                    <form method="post" action="">
+                        {{ form.hidden_tag() }}
+                        {{ form.delete() }}
+                    </form>
+                </p>
+                <style>
+                input{
+                    color: red;
+                    background-color: white;
+                }
+            }
+                </style>
+            </th>
+        </tr>
+    </table>
+    <!--<p>
 {#        <form action = "{{url_for('user.delete_account') }}" method ='post'>#}
 {#            <input class = "rainbow-box" type="submit" value="DELETE ACCOUNT" name="delete_account"/>#}
 {#        </form>#}
@@ -71,5 +124,5 @@
         background-color: white;
     }
 }
-    </style>
+    </style>-->
 {% endblock %}
