@@ -171,6 +171,11 @@ def upload_image():
         return redirect(request.url)
 """
 
+@app.route('/sorting',methods=['GET', 'POST'])
+def sorting():
+    pro_items = Products.query.all()
+
+    return render_template('sorting.html',pro_items=pro_items)
 
 @app.route('/display/<filename>')
 def display_image(filename):
