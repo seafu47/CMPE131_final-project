@@ -22,8 +22,20 @@ def allowed_file(filename):
 @app.route('/', methods=['GET', 'POST'])
 @login_required
 def index():
+    if request.method == 'POST':
+        title = request.form['search']
+
+        if not title:
+            flash('Search field is required!')
+        else:
+            pro_items = Products.query.filter(Products.product_name.like('%' + title + '%'))
+            return render_template('index.html',
+                                   title='Home',
+                                   pro_items=pro_items)
+
     # form = AddProduct()
     pro_items = Products.query.all()
+
     """
     if request.method == "POST":
         if request.form.get('action1') == 'Upload':
@@ -127,8 +139,8 @@ def upload_form():
             # back to previous page
             return render_template('upload.html', form=form)
 
-        if f and allowed_file(image_name+'.png'):
-            filename = secure_filename(image_name+'.png')
+        if f and allowed_file(image_name + '.png'):
+            filename = secure_filename(image_name + '.png')
             f.save(os.getcwd() + "/app/static/uploads/" + filename)
         flash('Add Product success', category='success')
         return redirect(url_for('index'))

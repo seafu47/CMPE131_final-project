@@ -1,58 +1,65 @@
 <nav class="navbar navbar-light" style="background-color: #6F7476;">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#" style="color: white">Team7</a>
-    </div>
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" style="color: white">Team7</a>
+        </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id ="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="{% if request.endpoint == 'index' %}active{% endif %}" >
-          <a href="{{ url_for('index') }}" style="color: white">Home</a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        {% if not current_user.is_authenticated %}
-          <li class="{% if request.endpoint == 'login' %}active{% endif %}" >
-            <a href="{{ url_for('login') }}" style="color: white">Login</a>
-          </li>
-          <li class="{% if request.endpoint == 'register' %}active{% endif %}" >
-            <a href="{{ url_for('register') }}" style="color: white">Register</a>
-          </li>
-        {% else %}
-          <li>
-            <input type="search" style="text-align: left; margin-top: 12px; margin-right: 5px" id="search" placeholder="Search..">
-          </li>
-          <p class="navbar-text">Hi, {{ current_user.username }}</p>
-          <li class="dropdown">
-            <!--
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="{% if request.endpoint == 'index' %}active{% endif %}">
+                    <a href="{{ url_for('index') }}" style="color: white">Home</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if not current_user.is_authenticated %}
+                    <li class="{% if request.endpoint == 'login' %}active{% endif %}">
+                        <a href="{{ url_for('login') }}" style="color: white">Login</a>
+                    </li>
+                    <li class="{% if request.endpoint == 'register' %}active{% endif %}">
+                        <a href="{{ url_for('register') }}" style="color: white">Register</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <form method="post">
+                            <input type="text" name="search" placeholder="Search" value="{{ request.form['search'] }}">
+                            <button type="submit">Submit</button>
+                        </form>
+
+                    </li>
+                    <p class="navbar-text">Hi, {{ current_user.username }}</p>
+                    <li class="dropdown">
+                        <!--
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >{{ current_user.username }}<span class="caret"></span>
             </button>
             -->
-            <a href="#" style="color: white" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ current_user.username }} <span class="caret"></span></a>
-            <ul class="dropdown-menu" aria-label="dropdownMenu1">
-              <li class="{% if request.endpoint == 'profile' %}active{% endif %}">
-                <a href="{{ url_for('profile') }}">Profile</a>
-              </li>
+                        <a href="#" style="color: white" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">{{ current_user.username }} <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu" aria-label="dropdownMenu1">
+                            <li class="{% if request.endpoint == 'profile' %}active{% endif %}">
+                                <a href="{{ url_for('profile') }}">Profile</a>
+                            </li>
 
-              <li class="{% if request.endpoint == 'upload_form' %}active{% endif %}">
-                <a href="{{ url_for('upload_form') }}">Upload Photo</a>
-              </li>
+                            <li class="{% if request.endpoint == 'upload_form' %}active{% endif %}">
+                                <a href="{{ url_for('upload_form') }}">Upload Photo</a>
+                            </li>
 
-              <li class="{% if request.endpoint == 'logout' %}active{% endif %}" >
-                <a href="{{ url_for('logout') }}">Logout</a>
-              </li>
-            </ul>
-          </li>
-        <!--
+                            <li class="{% if request.endpoint == 'logout' %}active{% endif %}">
+                                <a href="{{ url_for('logout') }}">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--
           <li class="{% if request.endpoint == 'logout' %}active{% endif %}" >
             <a href="{{ url_for('logout') }}">Logout</a>
           </li>
@@ -62,32 +69,31 @@
             </li>
           </ul>
           -->
-        {% endif %}
-        <li>
-          <a class = "button" style="color: white" onclick="darkMode()">Dark mode</a>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+                {% endif %}
+                <li>
+                    <a class="button" style="color: white" onclick="darkMode()">Dark mode</a>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
 </nav>
 
 
-
 <style>
-.dark_mode {
-  color: #c1c1c1;
-  background-color: #202124;
-}
+    .dark_mode {
+        color: #c1c1c1;
+        background-color: #202124;
+    }
 
-.button {
-  cursor: pointer;
-}
+    .button {
+        cursor: pointer;
+    }
 </style>
 
 <script>
-async function darkMode() {
-    document.body.classList.toggle("dark_mode");
-}
+    async function darkMode() {
+        document.body.classList.toggle("dark_mode");
+    }
 
 </script>
 
