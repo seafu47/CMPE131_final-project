@@ -11,9 +11,9 @@
 8. Purchase/Bid on Item - Ahmet Mutlugun
 9. User Profile - Ahmet Mutlugun, Rommel Aquino Jr
 10. """(Rating) won't work on anymore"""
-11. Edit Item - Ahmet Mutlugun
+11. Edit Item - Ahmet Mutlugun, Jiaheng Fang
 12. Add pictures - Jiaheng Fang, Ahmet Mutlugun
-13. Sorting - Ahmet Mutlugun
+13. Sorting - Ahmet Mutlugun, Xiyuan Zhou
 
 ## Non-functional Requirements
 
