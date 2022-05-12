@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#" style="color: white">Team7</a>
+            <a class="navbar-brand" href="#" style="color: white">UShop</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -18,9 +18,11 @@
                 <li class="{% if request.endpoint == 'index' %}active{% endif %}">
                     <a href="{{ url_for('index') }}" style="color: white">Home</a>
                 </li>
+                {% if current_user.is_authenticated %}
                 <li>
                     <a href="{{ url_for('sorting') }}" style="color: white">Sorting</a>
                 </li>
+                {% endif %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if not current_user.is_authenticated %}
