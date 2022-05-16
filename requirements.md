@@ -1,26 +1,25 @@
 
 ## Functional Requirements
 
-1. Login - Xiyuan Zhou
-2. Logout - Xiyuan Zhou
-3. Create Account - Xiyuan Zhou
-4. Delete Account - Ahmet Mutlugun
-5. Search Items - Rommel Aquino Jr 
-6. Post Items - Rommel Aquino Jr, Xiyuan Zhou
+1. Login - Xiyuan Zhou ✅
+2. Logout - Xiyuan Zhou ✅
+3. Create Account - Xiyuan Zhou ✅
+4. Delete Account - Ahmet Mutlugun ✅
+5. Search Items - Rommel Aquino Jr ✅
+6. Post Items - Rommel Aquino Jr, Xiyuan Zhou ✅
 7. Delete Item - Xiyuan Zhou
 8. Purchase/Bid on Item - Ahmet Mutlugun
-9. User Profile - Ahmet Mutlugun, Rommel Aquino Jr
-10. """(Rating) won't work on anymore"""
-11. Edit Item - Ahmet Mutlugun, Jiaheng Fang
-12. Add pictures - Jiaheng Fang, Ahmet Mutlugun
-13. Sorting - Ahmet Mutlugun, Xiyuan Zhou
+9. User Profile - Ahmet Mutlugun, Rommel Aquino Jr ✅
+10. Edit Item - Ahmet Mutlugun, Jiaheng Fang
+11. Add pictures - Jiaheng Fang, Ahmet Mutlugun ✅
+12. Sorting - Ahmet Mutlugun, Xiyuan Zhou ✅
 
 ## Non-functional Requirements
 
 1. Chinese Language - Xiyuan Zhou, Jiaheng Fang
 2. Turkish Language - Ahmet Mutlugun
-3. Dark Mode - Ahmet Mutlugun
-4. Smooth interface - Jiaheng Fang, Ahmet Mutlugun, Xiyuan Zhou, Rommel Aquino Jr
+3. Dark Mode - Ahmet Mutlugun ✅
+4. Smooth interface - Jiaheng Fang, Ahmet Mutlugun, Xiyuan Zhou, Rommel Aquino Jr ✅
 
 ## Use Cases
 1. Sell items

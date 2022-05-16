@@ -129,4 +129,34 @@
     }
 }
     </style>-->
+    <div class="container">
+    <div class="row bootstrap snippets bootdeys" id="store-list">
+        {% for temp in pro_items %}
+        <div class="col-md-6 col-xs-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <a href="#"><img src="{{url_for('static', filename='uploads/' + temp.product_image + '.png')}}" class="img-responsive"></a>
+                        </div>
+                        <div class="col-sm-7">
+                            <h4 class="title-store">
+                                <strong><a href="#">{{ temp.product_name }}</a></strong>
+                            </h4>
+                            <hr>
+                            <p>{{ temp.product_info }}</p>
+                            <p>
+                                <a href="#" class="btn btn-default" disabled="" data-original-title="" title="">${{ temp.product_price }}</a>
+                                <a href="#" class="btn btn-warning pull-right" data-original-title="" title="">Delete Listing</a>
+                            </p>
+                            <p style="text-align:right"><small>Sell by {{ temp.author.username }}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
