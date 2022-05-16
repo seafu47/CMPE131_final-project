@@ -2,13 +2,24 @@
 
 {% block content %}
     <!--<h1>{{ current_user.username }} </h1>-->
+
     <div class="profile-pic">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg" style="margin-left: 30px;border: 5px solid #555; border-radius: 50%; width: 200px; height: 200px">
         <div class="middle">
-            <button class="text">Edit</button>
+            <!--<button class="text">Edit</button>-->
+            <p><input type="file" id="file" name="image" accept="image/*" onchange="loadFile(event)" style="display: none;"></p>
+            <p><label for="file" style="cursor: pointer;">edit</label></p>
+            <!--<p><img id="output" width="200px" /></p>-->
         </div>
+        <img id="output" style="margin-left: 30px; margin-top: -220px;border: 5px solid #555; border-radius: 50%; width: 200px; height: 200px">
     </div>
     <h1>{{ current_user.username }} </h1>
+    <script>
+    var loadFile = function(event) {
+        var image = document.getElementById('output');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
+    </script>
     <style>
     h1 {
         margin-left: 250px;
