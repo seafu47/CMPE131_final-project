@@ -49,18 +49,22 @@ def index():
 @app.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
+    user_id = current_user.get_id()
+
+    products = Products.query.filter_by(product_seller_user_id=user_id).all()
+
     form = DeleteUserForm()
 
     if form.validate_on_submit():
         # TODO: Delete account here
-        User.query.filter_by(id=current_user.get_id()).delete()
+        User.query.filter_by(id=user_id).delete()
         db.session.commit()
         session.pop('_flashes', None)
         flash("Account deleted.", category='info')
         return redirect(url_for('index'))
 
     return render_template('profile.html',
-                           title='Profile', form=form)
+                           title='Profile', form=form, pro_items = products)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -122,7 +126,6 @@ def logout():
 def upload_form():
     form = AddProduct()
     if form.validate_on_submit():
-        print("Form Submitted")
         product_name = form.product_name.data
         product_price = form.product_price.data
         product_infor = form.product_info.data
@@ -171,11 +174,14 @@ def upload_image():
         return redirect(request.url)
 """
 
-@app.route('/sorting',methods=['GET', 'POST'])
+
+@app.route('/sorting', methods=['GET', 'POST'])
+@login_required
 def sorting():
     pro_items = Products.query.all()
 
-    return render_template('sorting.html',pro_items=pro_items)
+    return render_template('sorting.html', pro_items=pro_items)
+
 
 @app.route('/display/<filename>')
 def display_image(filename):
