@@ -5,5 +5,8 @@ flask-login
 flask-sqlalchemy
 flask-wtf
 wtforms
+email-validator
+bcrypt
+SQLAlchemy
 
 
