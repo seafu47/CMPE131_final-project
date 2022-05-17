@@ -50,7 +50,8 @@ class Products(db.Model):
     # product_createtime = db.Column(db.DateTime,default=datetime.now)
 
     product_seller_user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    # users = db.relationship('User', backref=db.backref('author', lazy=True))
+    #users = db.relationship('User', backref=db.backref('author', lazy=True))
+    order = db.relationship('Carts', backref=db.backref('productlist', lazy=True))
 
 
 class Carts(db.Model):
@@ -62,4 +63,5 @@ class Carts(db.Model):
     order_name = db.Column(db.String(50), nullable=False)
     order_price = db.Column(db.Float, nullable=False)
 
-    carts_user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    carts_user_id = db.Column(db.Integer, db.ForeignKey('products.product_id'), nullable=False)
+

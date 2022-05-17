@@ -1,1 +1,46 @@
 {% extends "base.html" %}
+
+{% block content %}
+<form class="form-horizontal">
+  <fieldset>
+    <legend>Shopping Cart</legend>
+        </fieldset>
+</form>
+<div class ="container">
+    <div class="row">
+        <table class="table table-lg">
+            <thread>
+                <th>#</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Discount</th>
+                <th>Subtotal</th>
+                <th>Delete</th>
+            </thread>
+
+            <tbody>
+                {% for temp in pro_items %}
+                <tr>
+                    <td>{{ temp.product_id }}</td>
+                    <td>{{ temp.product_name }}</td>
+                    <td>{{ temp.product_price }}</td>
+                    <td>Not Available</td>
+                    <td>${{ temp.product_price }}</td>
+                    <td><a href="#">Remove</a> </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td></td>
+                    <td><h3>Tax: 10.91</h3></td>
+                    <td colspan="3"><h3>Total:</h3></td>
+                    <td colspan="4"><h3><a href="/">Purchase</a> </h3></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+{% endblock %}
+
+
