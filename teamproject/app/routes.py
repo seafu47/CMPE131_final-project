@@ -57,6 +57,10 @@ def profile():
 
     if form.validate_on_submit():
         # TODO: Delete account here
+        # Delete all the items first
+        for i in products:
+            db.session.delete(i)
+
         User.query.filter_by(id=user_id).delete()
         db.session.commit()
         session.pop('_flashes', None)
@@ -174,6 +178,9 @@ def upload_image():
         return redirect(request.url)
 """
 
+@app.route('/shoppingcart', methods=['GET','POST'])
+def shoppingcart():
+    return render_template('shoppingcart.html')
 
 @app.route('/sorting', methods=['GET', 'POST'])
 @login_required
