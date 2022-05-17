@@ -6,6 +6,10 @@ from flask_bcrypt import Bcrypt
 
 from config import Config
 
+"""
+Initialize the flask app
+"""
+
 UPLOAD_FOLDER = 'static/uploads/'
 
 
