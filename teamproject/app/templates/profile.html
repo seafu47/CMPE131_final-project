@@ -158,9 +158,17 @@
                             <p>{{ temp.product_info }}</p>
                             <p>
                                 <a href="#" class="btn btn-default" disabled="" data-original-title="" title="">${{ temp.product_price }}</a>
-                                <a href="#" class="btn btn-warning pull-right" data-original-title="" title="">Delete Listing</a>
+
+                                <!---<a href="#" class="btn btn-warning pull-right" data-original-title="" title="">Delete</a> --->
+                                <form action="{{ url_for('delete_item') }}" method=post class=delete-item>
+                                    <input type=hidden value="{{ temp.product_id }}" name=item_delete />
+                                    <input type=submit value="Delete" class="btn btn-warning pull-right" onclick="return confirm('Are you sure Want to delete this items?')"/>
+                                </form>
+
+
                             </p>
-                            <p style="text-align:right"><small>Sell by {{ temp.author.username }}</small>
+                            <br>
+                            <p style="text-align:left"><small>Sell by {{ temp.author.username }}</small>
                             </p>
                         </div>
                     </div>
