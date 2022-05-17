@@ -16,12 +16,21 @@ AllOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 
 def allowed_file(filename):
+    """
+    Create a valid file name
+    :param filename: file name to check
+    :return: valid file name
+    """
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in AllOWED_EXTENSIONS
 
 
 @app.route('/', methods=['GET', 'POST'])
 @login_required
 def index():
+    """
+    Renders the home page. This page checks and takes input from the search bar.
+    :return: Home page
+    """
     if request.method == 'POST':
         title = request.form['search']
 
@@ -49,6 +58,11 @@ def index():
 @app.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
+    """
+    Shows the profile page with the users credentials, and also shows the user's items.
+    There are is also a "delete account" and a "delete listing" button.
+    :return: Profile page
+    """
     user_id = current_user.get_id()
 
     products = Products.query.filter_by(product_seller_user_id=user_id).all()
@@ -68,11 +82,15 @@ def profile():
         return redirect(url_for('index'))
 
     return render_template('profile.html',
-                           title='Profile', form=form, pro_items = products)
+                           title='Profile', form=form, pro_items=products)
 
-#app.py
+
 @app.route('/deleteitem', methods=['POST'])
 def delete_item():
+    """
+    Used to delete items
+    :return: Delete item page
+    """
     user_id = current_user.get_id()
 
     products = Products.query.filter_by(product_seller_user_id=user_id).all()
@@ -86,6 +104,10 @@ def delete_item():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    """
+    Register page, where the user can enter email, username and password to register
+    :return: Register page
+    """
     # if the user already login return to main html
     # no need register
     if current_user.is_authenticated:
@@ -108,6 +130,10 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    """
+    Login page, where username and password are required to log in
+    :return: Login page
+    """
     # if the user already log in return to main html
     if current_user.is_authenticated:
         return redirect(url_for('index'))
@@ -133,6 +159,10 @@ def login():
 
 @app.route('/logout')
 def logout():
+    """
+    Logs out the user
+    :return: Logout page
+    """
     logout_user()
     session.pop('_flashes', None)
     flash('You were successfully logged out', category='info')
@@ -141,6 +171,11 @@ def logout():
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_form():
+    """
+    Upload a new listing.
+    Name, price, description and a photo are required to create a listing.
+    :return: Upload page
+    """
     form = AddProduct()
     if form.validate_on_submit():
         product_name = form.product_name.data
@@ -191,15 +226,25 @@ def upload_image():
         return redirect(request.url)
 """
 
-@app.route('/shoppingcart', methods=['GET','POST'])
+
+@app.route('/shoppingcart', methods=['GET', 'POST'])
 def shoppingcart():
+  """
+    Renders the shopping cart page
+    :return: Shopping cart page
+    """
     pro_items = Products.query.all()
     return render_template('shoppingcart.html',
                            pro_items=pro_items)
 
+
 @app.route('/sorting', methods=['GET', 'POST'])
 @login_required
 def sorting():
+    """
+    Renders the home page with the list of items sorted by name
+    :return:
+    """
     pro_items = Products.query.all()
 
     return render_template('sorting.html', pro_items=pro_items)
@@ -207,4 +252,9 @@ def sorting():
 
 @app.route('/display/<filename>')
 def display_image(filename):
+    """
+    Used to display images
+    :param filename: Name of the file
+    :return: Display image
+    """
     return redirect(url_for('static', filename='uploads/' + filename))
