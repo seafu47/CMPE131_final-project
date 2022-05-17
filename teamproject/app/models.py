@@ -43,4 +43,7 @@ class Products(db.Model):
 class Carts(db.Model):
     order_id = db.Column(db.Integer,primary_key=True,autoincrement=True)
 
+    order_name = db.Column(db.String(50),nullable=False)
+    order_price = db.Column(db.Float,nullable=False)
+
     carts_user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
