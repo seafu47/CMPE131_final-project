@@ -240,6 +240,7 @@ def shoppingcart():
                            pro_items=pro_items)
 
 
+
 @app.route('/sorting', methods=['GET', 'POST'])
 @login_required
 def sorting():
