@@ -95,11 +95,17 @@ def delete_item():
 
     user_id = current_user.get_id()
 
-    products = Products.query.filter_by(product_seller_user_id=user_id).all()
+    products = Products.query.filter_by().all()
+    print([request.form['item_delete']][0])
 
     for i in products:
-        db.session.delete(i)
+        if int([request.form['item_delete']][0]) == i.product_id:
+            db.session.delete(i)
+            break
+
+        #db.session.delete(i)
     db.session.commit()
+
 
     return redirect(url_for('profile'))
 
