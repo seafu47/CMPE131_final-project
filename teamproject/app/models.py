@@ -38,3 +38,9 @@ class Products(db.Model):
 
     product_seller_user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     #users = db.relationship('User', backref=db.backref('author', lazy=True))
+
+
+class Carts(db.Model):
+    order_id = db.Column(db.Integer,primary_key=True,autoincrement=True)
+
+    carts_user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
