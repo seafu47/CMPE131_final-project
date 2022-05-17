@@ -70,6 +70,19 @@ def profile():
     return render_template('profile.html',
                            title='Profile', form=form, pro_items = products)
 
+#app.py
+@app.route('/deleteitem', methods=['POST'])
+def delete_item():
+    user_id = current_user.get_id()
+
+    products = Products.query.filter_by(product_seller_user_id=user_id).all()
+
+    for i in products:
+        db.session.delete(i)
+    db.session.commit()
+
+    return redirect(url_for('profile'))
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
