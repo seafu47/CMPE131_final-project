@@ -57,6 +57,10 @@ def profile():
 
     if form.validate_on_submit():
         # TODO: Delete account here
+        # Delete all the items first
+        for i in products:
+            db.session.delete(i)
+
         User.query.filter_by(id=user_id).delete()
         db.session.commit()
         session.pop('_flashes', None)
