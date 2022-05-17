@@ -4,6 +4,9 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config(object):
+    """
+    Configuration for the database
+    """
     # secret-key
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'guess please'
 
