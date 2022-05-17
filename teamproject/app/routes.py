@@ -85,12 +85,14 @@ def profile():
                            title='Profile', form=form, pro_items=products)
 
 
-@app.route('/deleteitem', methods=['POST'])
+@app.route('/deleteitem', methods=['POST', 'GET'])
+@login_required
 def delete_item():
     """
     Used to delete items
     :return: Delete item page
     """
+
     user_id = current_user.get_id()
 
     products = Products.query.filter_by(product_seller_user_id=user_id).all()
@@ -243,6 +245,17 @@ def sorting():
     Renders the home page with the list of items sorted by name
     :return:
     """
+
+    if request.method == 'POST':
+        title = request.form['search']
+
+        if not title:
+            flash('Search field is required!')
+        else:
+            pro_items = Products.query.filter(Products.product_name.like('%' + title + '%'))
+            return render_template('sorting.html',
+                                   title='Home',
+                                   pro_items=pro_items)
     pro_items = Products.query.all()
 
     return render_template('sorting.html', pro_items=pro_items)
