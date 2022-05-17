@@ -62,3 +62,13 @@
   -Discussed what are new functions should replace the (RATING) function
 -Summarize
   Our team have made a new class for products to connect with the database and User. Big process have finished today. And our team dicussed how to list items into website nicer.
+
+
+### 2022-05-10
+-Attended: Xiyuan Zhou, Jiaheng Fang, Ahmet Mutlugun
+-Team updates (more than 15 mins)
+  -Talk about wrapping up
+  -Shopping cart requirement to replace purchase item
+  -Find bugs to fix
+-Summarize
+  Minor bugs need to be fixed
