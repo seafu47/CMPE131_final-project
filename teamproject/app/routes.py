@@ -174,6 +174,9 @@ def upload_image():
         return redirect(request.url)
 """
 
+@app.route('/shoppingcart', methods=['GET','POST'])
+def shoppingcart():
+    return render_template('shoppingcart.html')
 
 @app.route('/sorting', methods=['GET', 'POST'])
 @login_required
