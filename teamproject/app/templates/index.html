@@ -20,9 +20,13 @@
                             <p>
                                 <a href="#" class="btn btn-default" disabled="" data-original-title="" title="">${{ temp.product_price }}</a>
                                 <!---<a href="#" class="btn btn-success" data-original-title="" title="">Bid</a> --->
-                                <a href="#" class="btn btn-warning pull-right" data-original-title="" title="">Add to cart</a>
+                                <!--- <a href="#" class="btn btn-warning pull-right" data-original-title="" title="">Add to cart</a> --->
+                                <form action="{{ url_for('shoppingcart') }}" method=post class=delete-item>
+                                    <input type=hidden value="{{ temp.product_id }}" name=item_order />
+                                    <input type=submit value="Add to Cart" class="btn btn-warning pull-right"/>
+                                </form>
                             </p>
-                            <p style="text-align:right"><small>Sell by {{ temp.author.username }}</small>
+                            <p style="text-align:left"><small>Sell by {{ temp.author.username }}</small>
                             </p>
                         </div>
                     </div>
