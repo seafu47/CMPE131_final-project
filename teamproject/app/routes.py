@@ -231,9 +231,9 @@ def upload_image():
 
 @app.route('/shoppingcart', methods=['GET', 'POST'])
 def shoppingcart():
-  """
-    Renders the shopping cart page
-    :return: Shopping cart page
+    """
+    Shopping cart page
+    :return: Shopping cart html page
     """
     pro_items = Products.query.all()
     return render_template('shoppingcart.html',
