@@ -12,6 +12,7 @@
             <thread>
                 <th>#</th>
                 <th>Name</th>
+                <th>Seller</th>
                 <th>Price</th>
                 <th>Discount</th>
                 <th>Subtotal</th>
@@ -19,13 +20,14 @@
             </thread>
 
             <tbody>
-                {% for temp in pro_items %}
+                {% for temp in temp_cart %}
                 <tr>
-                    <td>{{ temp.product_id }}</td>
-                    <td>{{ temp.product_name }}</td>
-                    <td>{{ temp.product_price }}</td>
+                    <td>{{ temp.order_id }}</td>
+                    <td>{{ temp.order_name }}</td>
+                    <td>{{ temp.author.username }}</td>
+                    <td>{{ temp.order_price }}</td>
                     <td>Not Available</td>
-                    <td>${{ temp.product_price }}</td>
+                    <td>${{ temp.order_price }}</td>
                     <td><a href="#">Remove</a> </td>
                 </tr>
                 {% endfor %}

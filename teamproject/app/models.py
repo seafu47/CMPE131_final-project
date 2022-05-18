@@ -22,7 +22,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(20), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     product = db.relationship('Products', backref=db.backref('author', lazy=True))
-
+    cart = db.relationship('Carts', backref=db.backref('author', lazy=True))
     # photo_image = db.Column(db.String(120), default='static/uploads/dog_PNG50321.png', nullable=False)
 
     def __repr__(self):
@@ -51,7 +51,7 @@ class Products(db.Model):
 
     product_seller_user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     #users = db.relationship('User', backref=db.backref('author', lazy=True))
-    order = db.relationship('Carts', backref=db.backref('productlist', lazy=True))
+    #order = db.relationship('Carts', backref=db.backref('productlist', lazy=True))
 
 
 class Carts(db.Model):
@@ -63,5 +63,5 @@ class Carts(db.Model):
     order_name = db.Column(db.String(50), nullable=False)
     order_price = db.Column(db.Float, nullable=False)
 
-    carts_user_id = db.Column(db.Integer, db.ForeignKey('products.product_id'), nullable=False)
+    carts_user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
