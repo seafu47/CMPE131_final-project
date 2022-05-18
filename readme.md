@@ -50,7 +50,7 @@ Our website uses flask with python to create a shopping interface. Bycrypt and S
 5. Search Items - Rommel Aquino Jr ✅
 6. Post Items - Rommel Aquino Jr, Xiyuan Zhou ✅
 7. Delete Item - Xiyuan Zhou ✅
-8. Shopping Cart - Xiyuan Zhou
+8. Shopping Cart - Xiyuan Zhou ✅
 9. User Profile - Ahmet Mutlugun, Rommel Aquino Jr ✅
 10. Google Translate API - ✅
 11. Add pictures - Jiaheng Fang, Ahmet Mutlugun ✅
