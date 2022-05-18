@@ -242,10 +242,22 @@ def shoppingcart():
     :return: Shopping cart html page
     """
     pro_items = Products.query.all()
-    return render_template('shoppingcart.html',
-                           pro_items=pro_items)
+    for i in pro_items:
+        if int([request.form['item_order']][0]) == i.product_id:
+            order_name = i.product_name
+            order_price = i.product_price
+            c1 = Carts(order_name=order_name, order_price=order_price)
+            current_user.cart.append(c1)
+            db.session.commit()
+            break
 
+    return redirect(url_for('index'))
 
+@app.route('/displaycart')
+def displaycarts():
+    temp_cart = Carts.query.all()
+
+    return render_template('shoppingcart.html', temp_cart=temp_cart)
 
 @app.route('/sorting', methods=['GET', 'POST'])
 @login_required
