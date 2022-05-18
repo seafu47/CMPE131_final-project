@@ -13,6 +13,23 @@
 Run: `pip install -r requirements.txt` to install the required dependincies.  
 Run: `python3 run.py` to start the website through localhost.
 
+## Virtual Env
+Run the following commands to create and activate a virtual environment.
+```
+python3 -m venv env
+source env/bin/activate
+```
+Check if the right python is being used
+```
+which python3
+```
+
+Next, install packages and run the flask app
+```
+pip install -r requirements.txt
+python3 run.py
+```
+
 ## Database
 An example database was uploaded for convinience. A new database can be created by deleting app.db and running:
 
