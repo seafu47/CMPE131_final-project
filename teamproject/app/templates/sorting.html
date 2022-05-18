@@ -21,10 +21,14 @@
                             <p>{{ testt.product_info }}</p>
                             <p>
                                 <a href="#" class="btn btn-default" disabled="" data-original-title="" title="">${{ testt.product_price }}</a>
-                                <!--- <a href="#" class="btn btn-success" data-original-title="" title="">Bid</a> --->
-                                <a href="#" class="btn btn-warning pull-right" data-original-title="" title="">Add to cart</a>
+                                <!---<a href="#" class="btn btn-success" data-original-title="" title="">Bid</a> --->
+                                <!--- <a href="#" class="btn btn-warning pull-right" data-original-title="" title="">Add to cart</a> --->
+                                <form action="{{ url_for('shoppingcart') }}" method=post class=order-item>
+                                    <input type=hidden value="{{ testt.product_id }}" name=item_order />
+                                    <input type=submit value="Add to Cart" class="btn btn-warning pull-right"/>
+                                </form>
                             </p>
-                            <p style="text-align:right"><small>Sell by {{ testt.author.username }}</small>
+                            <p style="text-align:left"><small>Sell by {{ testt.author.username }}</small>
                             </p>
                         </div>
                     </div>
