@@ -60,6 +60,7 @@ class Carts(db.Model):
     """
     order_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
 
+    seller_name = db.Column(db.String(50), nullable=False)
     order_name = db.Column(db.String(50), nullable=False)
     order_price = db.Column(db.Float, nullable=False)
 

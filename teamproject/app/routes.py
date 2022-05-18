@@ -66,7 +66,7 @@ def profile():
     user_id = current_user.get_id()
 
     products = Products.query.filter_by(product_seller_user_id=user_id).all()
-
+    cart = Carts.query.filter_by(carts_user_id=user_id).all()
     form = DeleteUserForm()
 
     if form.validate_on_submit():
@@ -74,6 +74,7 @@ def profile():
         # Delete all the items first
         for i in products:
             db.session.delete(i)
+
 
         User.query.filter_by(id=user_id).delete()
         db.session.commit()
@@ -172,6 +173,11 @@ def logout():
     :return: Logout page
     """
     logout_user()
+    cart = Carts.query.all()
+    for i in cart:
+        db.session.delete(i)
+
+    db.session.commit()
     session.pop('_flashes', None)
     flash('You were successfully logged out', category='info')
     return redirect(url_for('login'))
@@ -242,11 +248,13 @@ def shoppingcart():
     :return: Shopping cart html page
     """
     pro_items = Products.query.all()
+
     for i in pro_items:
         if int([request.form['item_order']][0]) == i.product_id:
             order_name = i.product_name
             order_price = i.product_price
-            c1 = Carts(order_name=order_name, order_price=order_price)
+            seller_name = i.author.username
+            c1 = Carts(order_name=order_name, order_price=order_price, seller_name=seller_name)
             current_user.cart.append(c1)
             db.session.commit()
             break
@@ -255,9 +263,52 @@ def shoppingcart():
 
 @app.route('/displaycart')
 def displaycarts():
+    """
+    display items page
+    :return: Shopping cart html page
+    """
     temp_cart = Carts.query.all()
+    total_price = 0.00
+    for i in temp_cart:
+        total_price = total_price + i.order_price
 
-    return render_template('shoppingcart.html', temp_cart=temp_cart)
+    total_price = total_price + total_price * 0.1091
+
+
+
+    return render_template('shoppingcart.html', temp_cart=temp_cart,
+                           total_price=total_price)
+
+@app.route('/removeitems',methods=['GET', 'POST'])
+def remove_order():
+    """
+    Remove order from Shopping Carts
+    :return: Shopping cart html page
+    """
+    temp_cart = Carts.query.all()
+    for i in temp_cart:
+        if int([request.form['cart_remove']][0]) == i.order_id:
+            db.session.delete(i)
+            break
+
+    db.session.commit()
+    return redirect(url_for('displaycarts'))
+
+@app.route('/purchase', methods=['GET','POST'])
+def purchase():
+    """
+    Purchase button for delete cart's items
+    :return: Home html page (index
+    """
+    cart = Carts.query.all()
+
+    for i in cart:
+        db.session.delete(i)
+
+    db.session.commit()
+
+    return redirect(url_for('index'))
+
 
 @app.route('/sorting', methods=['GET', 'POST'])
 @login_required

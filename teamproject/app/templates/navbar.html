@@ -64,7 +64,7 @@
                                 <a href="{{ url_for('logout') }}">Logout</a>
                             </li>
                         </ul>
-                        <li role="presentation"><a href="{{ url_for('displaycarts') }}" style="color: white">Shopping Cart<span style="color: black" class="badge">{{ current_user.cart[-1].order_id }}</span></a></li>
+                        <li role="presentation"><a href="{{ url_for('displaycarts') }}" style="color: white">Shopping Cart<span style="color: black" class="badge">{{ current_user.cart.order_id }}</span></a></li>
                     </li>
                     <!--
           <li class="{% if request.endpoint == 'logout' %}active{% endif %}" >

@@ -24,18 +24,32 @@
                 <tr>
                     <td>{{ temp.order_id }}</td>
                     <td>{{ temp.order_name }}</td>
-                    <td>{{ temp.author.username }}</td>
+                    <td>{{ temp.seller_name }}</td>
                     <td>{{ temp.order_price }}</td>
                     <td>Not Available</td>
                     <td>${{ temp.order_price }}</td>
-                    <td><a href="#">Remove</a> </td>
+                    <td>
+                        <form action="{{ url_for('remove_order') }}" method=post class=remove-item>
+                            <input type=hidden value="{{ temp.order_id }}" name=cart_remove />
+                            <input type=submit value="Remove" />
+                        </form>
+                    </td>
                 </tr>
                 {% endfor %}
                 <tr>
                     <td></td>
                     <td><h3>Tax: 10.91</h3></td>
-                    <td colspan="3"><h3>Total:</h3></td>
-                    <td colspan="4"><h3><a href="/">Purchase</a> </h3></td>
+                    <td colspan="3"><h3>Total: ${{ total_price }} </h3></td>
+                    <td colspan="4">
+                        <div class="alert">
+                        <h3>
+                        <form action="{{ url_for('purchase') }}" method=post class=order-item>
+                            <input type=hidden value="" name=purchase_order />
+                            <input type=submit value="Purchase" />
+                        </form>
+                    </h3>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
